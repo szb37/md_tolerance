@@ -1,0 +1,43 @@
+> summary(model)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: 
+isGuessCorrect ~ (1 | trial_id_int) + acid_dose + suggestibility +  
+    n_MD
+   Data: df
+
+REML criterion at convergence: 1045.6
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-1.8585 -0.7734 -0.4422  0.9208  2.0057 
+
+Random effects:
+ Groups       Name        Variance Std.Dev.
+ trial_id_int (Intercept) 0.04473  0.2115  
+ Residual                 0.19501  0.4416  
+Number of obs: 757, groups:  trial_id_int, 126
+
+Fixed effects:
+                 Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)      0.627684   0.122323 107.092938   5.131 1.29e-06 ***
+acid_dose        0.008287   0.004195 109.057619   1.976 0.050733 .  
+suggestibility  -0.005569   0.002655 104.242498  -2.098 0.038335 *  
+n_MD            -0.026387   0.007421 731.329275  -3.556 0.000401 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) acd_ds sggstb
+acid_dose   -0.370              
+suggestblty -0.857 -0.084       
+n_MD        -0.161  0.045 -0.025
+
+
+
+> anova(model)
+Type III Analysis of Variance Table with Satterthwaite's method
+                Sum Sq Mean Sq NumDF  DenDF F value    Pr(>F)    
+acid_dose      0.76107 0.76107     1 109.06  3.9028 0.0507329 .  
+suggestibility 0.85823 0.85823     1 104.24  4.4010 0.0383348 *  
+n_MD           2.46547 2.46547     1 731.33 12.6429 0.0004013 ***

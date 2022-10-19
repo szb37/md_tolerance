@@ -1,0 +1,67 @@
+> summary(model)
+Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+lmerModLmerTest]
+Formula: isGuessCorrect ~ (1 | trial_id_int) + education + n_macro_exp +  
+    n_micro_months + n_MD
+   Data: df
+
+REML criterion at convergence: 331.8
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-1.5386 -0.6464 -0.3685  0.8698  1.9795 
+
+Random effects:
+ Groups       Name        Variance Std.Dev.
+ trial_id_int (Intercept) 0.003468 0.05889 
+ Residual                 0.209519 0.45773 
+Number of obs: 236, groups:  trial_id_int, 36
+
+Fixed effects:
+                Estimate Std. Error        df t value Pr(>|t|)   
+(Intercept)     -0.35518    0.26711  16.48581  -1.330  0.20173   
+education1       0.95325    0.26776  15.47350   3.560  0.00273 **
+education2       0.46309    0.18828  15.41881   2.460  0.02616 * 
+education3       0.41614    0.19679  15.51742   2.115  0.05102 . 
+n_macro_exp2     0.45373    0.18695  15.90161   2.427  0.02749 * 
+n_macro_exp3     0.38702    0.19674  15.54047   1.967  0.06728 . 
+n_macro_exp4     0.09016    0.18655  15.28390   0.483  0.63574   
+n_macro_exp5     0.05876    0.19772  15.91918   0.297  0.77015   
+n_macro_exp6    -0.02252    0.26846  26.87265  -0.084  0.93377   
+n_micro_months   0.02913    0.01113  43.78363   2.617  0.01214 * 
+n_MD             0.01829    0.01362 220.27500   1.343  0.18057   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) edctn1 edctn2 edctn3 n_mc_2 n_mc_3 n_mc_4 n_mc_5 n_mc_6
+education1  -0.501                                                        
+education2  -0.690  0.697                                                 
+education3  -0.743  0.682  0.931                                          
+n_macro_xp2 -0.645  0.005 -0.012  0.056                                   
+n_macro_xp3 -0.741  0.114  0.130  0.232  0.863                            
+n_macro_xp4 -0.645  0.005 -0.015  0.062  0.890  0.872                     
+n_macro_xp5 -0.620 -0.121 -0.017  0.070  0.851  0.841  0.861              
+n_macro_xp6 -0.482 -0.022 -0.017  0.071  0.648  0.652  0.659  0.680       
+n_mcr_mnths -0.037  0.088  0.001  0.033 -0.006 -0.023 -0.024 -0.143 -0.343
+n_MD        -0.206 -0.005  0.022  0.037  0.056  0.033  0.022  0.040  0.086
+            n_mcr_
+education1        
+education2        
+education3        
+n_macro_xp2       
+n_macro_xp3       
+n_macro_xp4       
+n_macro_xp5       
+n_macro_xp6       
+n_mcr_mnths       
+n_MD         0.071
+
+
+> anova(model)
+Type III Analysis of Variance Table with Satterthwaite's method
+               Sum Sq Mean Sq NumDF   DenDF F value   Pr(>F)   
+education      2.7936 0.93121     3  16.366  4.4445 0.018323 * 
+n_macro_exp    6.1262 1.22525     5  20.232  5.8479 0.001693 **
+n_micro_months 1.4346 1.43460     1  43.784  6.8471 0.012140 * 
+n_MD           0.3781 0.37805     1 220.275  1.8044 0.180568   
